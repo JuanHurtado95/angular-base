@@ -1,0 +1,25 @@
+<div class="container col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h3>Modificar Cita</h3>
+      </div>
+      <div class="card-body">
+        <form action="">
+            <div class="form-group">
+            <label for="idCita">ID Vehiculo:</label>
+            <!-- <input [(ngModel)]="tiquete.idUsuario" name="idUsuario" type="text" class="form-control"> -->
+            <select [(ngModel)]="cita.idVehiculo" [ngModelOptions]="{standalone: true}" name="idVehiculo" class="form-control" required id="idVehiculo">
+              <option value="" selected  disabled>Seleccionar</option>
+              <option *ngFor="let vehiculo of vehiculos | async" [value]="vehiculo.id" id="vehiculos">{{vehiculo.id}} - {{vehiculo.placa}}</option>
+            </select>
+          </div>
+            <div class="form-group">
+                <label for="">Fecha de compra:</label>
+                <input [(ngModel)]="cita.fecha" name="fecha" type="date" min="2021-04-02" placeholder="yyyy-mm-dd" class="form-control" id="fechaCompra" required>
+              </div>
+          <button (click)="actualizarCita(cita)" class="btn btn-danger" id="actualizarCita">Actualizar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

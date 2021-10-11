@@ -1,6 +1,8 @@
 {
-  "/prospectos-vida": {
-    "target": "http://192.168.1.115:9002",
+  "/citas-lavateka/*": {
+    "target": "http://localhost:8083",
+    "secure" : false,
+    "changeOrigin": false,
     "logLevel": "debug"
   }
 

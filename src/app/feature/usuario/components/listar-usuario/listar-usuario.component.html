@@ -1,0 +1,38 @@
+<div class="container">
+  <br>
+  <div class="card row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5>Usuarios</h5>
+          <button (click)="crearUsuario()" class="btn btn-primary btn-sm bi bi-person-plus-fill" id="botonCrearUsuario"> Crear Usuario</button>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr class="text-center">
+            <th>ID</th>
+            <th>CEDULA</th>
+            <th>NOMBRE</th>
+            <th>TELEFONO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios | async" class="text-center tablaUsuarios">
+            <td>{{usuario.id}}</td>
+            <td>{{usuario.cedula}}</td>
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.telefono}}</td>
+            <td>
+              <button (click)="editarUsuario(usuario)" class="btn btn-outline-secondary btn-sm bi bi-pencil-square" [id]="'botonEditarUsuario'+ usuario.id"> Editar</button>
+              &nbsp;
+              <button (click)="deleteUsuario(usuario)" class="btn btn-outline-danger btn-sm bi bi-trash-fill" [id]="'botonEliminarUsuario' + usuario.id"> Borrar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
