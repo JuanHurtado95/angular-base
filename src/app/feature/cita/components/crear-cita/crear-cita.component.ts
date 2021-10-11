@@ -32,7 +32,7 @@ export class CrearCitaComponent implements OnInit {
     this.service.createCita(this.cita).subscribe(
       () => {
         this.swalService.succes("Cita creado correctamente");
-        this.router.navigate(["citas"]);
+        this.router.navigate(["cita"]);
       },
       (error) => {
         this.swalService.danger(error.error.mensaje);

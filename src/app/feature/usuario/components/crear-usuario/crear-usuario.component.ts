@@ -23,7 +23,7 @@ export class CrearUsuarioComponent implements OnInit {
     this.service.createUsuario(this.usuario).subscribe(
       () => {
         this.swalService.succes("Usuario creado correctamente");
-        this.router.navigate(["usuarios"]);
+        this.router.navigate(["usuario"]);
       },
       (error) => {
         this.swalService.danger(error.error.mensaje);

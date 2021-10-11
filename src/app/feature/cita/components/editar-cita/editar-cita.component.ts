@@ -34,7 +34,7 @@ export class EditarCitaComponent implements OnInit {
     this.service.updateCita(cita).subscribe(
       () => {
         this.swalService.succes("Cita actualizada correctamente");
-        this.router.navigate(["citas"]);
+        this.router.navigate(["cita"]);
       },
       (error) => {
         this.swalService.danger(error.error.mensaje);
