@@ -26,20 +26,14 @@ describe("Crear Usuario", () => {
   it("Debe crear el Usuario", () => {
   //arrange
     page.navigateTo();
-    browser.sleep(1000);
     navBar.clickBotonUsuarios();
-    browser.sleep(1000);
     listarUsuarios.clickBotonCrearUsuario();
-    browser.sleep(1000);
     crearUsuario.clickInputNombre();
     crearUsuario.setInputNombre(NOMBRE);
-    browser.sleep(1000);
     crearUsuario.clickInputCedula();
     crearUsuario.setInputCedula(CEDULA);
-    browser.sleep(1000);
     crearUsuario.clickInputCedula();
     crearUsuario.setInputCedula(TELEFONO);
-    browser.sleep(1000);
 
     //act
     crearUsuario.clickBotonGuardarUsuario();

@@ -51,7 +51,8 @@ pipeline {
     stage('NPM Install') {
       steps {
         withEnv(['NPM_CONFIG_LOGLEVEL=warn']) {
-          sh 'npm install'
+          sh 'npm cache clean'
+		  sh 'npm install'
         }
       }
     }
@@ -95,7 +96,6 @@ pipeline {
     }
     failure {
       echo 'This will run only if failed'
-      mail (to: 'harvin.rengifo@ceiba.com.co',subject: "Failed Pipeline:${currentBuild.fullDisplayName}", body: "Something is wrong with ${env.BUILD_URL}")
     }
     unstable {
       echo 'This will run only if the run was marked as unstable'
