@@ -48,25 +48,19 @@ pipeline {
       }
     }
     
-    stage('NPM Install') {
-      steps {
-        withEnv(['NPM_CONFIG_LOGLEVEL=warn']) {
-          sh 'npm cache clean'
-		  sh 'npm install'
+    stages {
+    stage('Install') {
+      steps { sh 'npm install' }
+    }
+
+    stage('Test') {
+      parallel {
+        stage('Static code analysis') {
+            steps { sh 'npm run-script lint' }
         }
-      }
-    }
-
-    stage('Unit Test') {
-      steps {
-        echo '------------>Testing<------------'
-        sh 'ng test --browsers ChromeHeadless --progress=false --watch false --code-coverage'
-      }
-    }
-
-    stage('Lint') {
-      steps {
-        sh 'ng lint'
+        stage('Unit tests') {
+            steps { sh 'npm run-script test' }
+        }
       }
     }
 
