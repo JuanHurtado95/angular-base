@@ -40,12 +40,12 @@ describe("Editar Usuario", () => {
     await editarUsuario.setInputTelefono(TELEFONO);
 
     //act
-    editarUsuario.clickBotonActualizarUsuario();
+    await editarUsuario.clickBotonActualizarUsuario();
 
     //assert
     //const alerta = "El usuario ha sido editado";
     const alerta = await editarUsuario.getTextoSwal();
-    await expect(alerta).toEqual(USUARIO_CREADO);
+    await expect(await alerta).toEqual(await USUARIO_CREADO);
   });
   /*
   it("Debe retornar un error que la cedula ya existe ", async () => {

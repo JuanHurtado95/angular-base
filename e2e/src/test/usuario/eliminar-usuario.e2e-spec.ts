@@ -25,7 +25,7 @@ describe("Eliminar Usuario", () => {
     //assert
     //const alerta = "El usuario ha sido eliminado";
     const alerta = await listarUsuarios.getTextoSwal();
-    
-    await expect(alerta).toEqual(USUARIO_ELIMINADO);
+
+    await expect(await alerta).toEqual(await USUARIO_ELIMINADO);
   });
 });

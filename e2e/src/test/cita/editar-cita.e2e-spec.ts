@@ -40,7 +40,7 @@ describe("Editar Cita", () => {
     //assert
     //const alerta = "Cita creada correctamente";
     const alerta = await editarCita.getTextoSwal();
-    await expect(alerta).toEqual(CITA_ACTUALIZADA);
+    expect(alerta).toEqual(CITA_ACTUALIZADA);
   });
   /*
   it("Debe salir error dias sabado o domingo", async () => {

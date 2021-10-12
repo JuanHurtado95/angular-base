@@ -39,8 +39,8 @@ describe("Crear Usuario", () => {
 
     //assert
     //const alerta = "El usuario ha sido creado";
-    const alerta = crearUsuario.getTextoSwal();
-    await expect(alerta).toEqual(USUARIO_CREADO);
+    const alerta = await crearUsuario.getTextoSwal();
+    await expect(await alerta).toEqual(await USUARIO_CREADO);
   });
 
   it("Debe retornar un error que usuario ya existe ", async () => {
@@ -61,7 +61,7 @@ describe("Crear Usuario", () => {
       //assert
       //const alerta = "El usuario ya existe";
       const alerta = await crearUsuario.getTextoSwal();
-      await expect(alerta).toEqual(USUARIO_YA_EXISTE);
+      expect(await alerta).toEqual(await USUARIO_YA_EXISTE);
     });
 
 });

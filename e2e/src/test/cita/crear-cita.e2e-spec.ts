@@ -11,8 +11,8 @@ describe("Crear Cita", () => {
   let crearCita: CrearCita;
   const FECHA_CITA = "10-27-2021";
   const CITA_CREADA = "Cita creado correctamente";
-  //const FECHA_CITA_FINDE= "10-23-2021";
-  //const DIAS_SABADOS_DOMINGOS= "No se agenda citas los dias sabados y domingos";
+  const FECHA_CITA_FINDE= "10-23-2021";
+  const DIAS_SABADOS_DOMINGOS= "No se agenda citas los dias sabados y domingos";
 
   beforeEach(() => {
     page = new AppPage();
@@ -39,8 +39,8 @@ describe("Crear Cita", () => {
     const alerta = await crearCita.getTextoSwal();
     await expect(alerta).toEqual(CITA_CREADA);
   });
-/*
-  it("Debe error dias sabado o domingo", async () => {
+
+  fit("Debe error dias sabado o domingo", async () => {
 
     await page.navigateTo();
     await navBar.clickBotonCitas();
@@ -50,14 +50,16 @@ describe("Crear Cita", () => {
     await crearCita.clickOpcionIdVehiculo();
     await crearCita.clickInputFechaCita();
     await crearCita.setInputFechaCita(FECHA_CITA_FINDE);
-
+    
     //act
     await crearCita.clickBotonGuardarCita();
+    page.esperarElementoAparezca(crearCita.getToast());
 
     //assert
     //const alerta = "No se agenda citas los dias sabados y domingos";
-    const alerta = crearCita.getTextoSwal();
+    const alerta = await crearCita.getTextoSwal();
     await expect(alerta).toEqual(DIAS_SABADOS_DOMINGOS);
-  });*/
+
+  });
 
 });

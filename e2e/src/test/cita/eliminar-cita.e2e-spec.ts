@@ -25,7 +25,7 @@ describe("Eliminar Cita", () => {
     //assert
     //const alerta = "El usuario ha sido eliminado";
     const alerta = await listarCitas.getTextoSwal();
-    await expect(alerta).toEqual(CITA_ELIMINADA);
+    await expect(await alerta).toEqual(await CITA_ELIMINADA);
   });
 
 });

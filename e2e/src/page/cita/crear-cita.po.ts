@@ -1,6 +1,6 @@
-import { by, element } from 'protractor';
+import { by, element, ElementFinder } from 'protractor';
 
-export class CrearCita {
+export class CrearCita  {
     private inputIdVehiculo = element(by.id("idVehiculo"));
     private seleccionVehiculo = element.all(by.id("vehiculos"));
     private inputFechaCita = element(by.id("fechaCita"));
@@ -33,6 +33,10 @@ export class CrearCita {
 
     async getTextoSwal(): Promise<string> {
         return await this.swal.getText();
+    }
+
+    getToast(): ElementFinder{
+        return this.swal;
     }
 
 }
