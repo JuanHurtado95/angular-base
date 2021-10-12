@@ -1,10 +1,10 @@
-import { by, element } from 'protractor';
+import { by, element } from "protractor";
 
-export class CrearCita {
+export class EditarCita {
     private inputIdVehiculo = element(by.id("idVehiculo"));
     private seleccionVehiculo = element.all(by.id("vehiculos"));
     private inputFechaCita = element(by.id("fechaCita"));
-    private botonCreaCita = element(by.id("guardarCita"));
+    private botonCreaCita = element(by.id("actualizarCita"));
     private swal = element(by.className('swal2-title'));
 
     async clickInputIdVehiculo() {
@@ -34,5 +34,4 @@ export class CrearCita {
     async getTextoSwal(): Promise<string> {
         return await this.swal.getText();
     }
-
 }

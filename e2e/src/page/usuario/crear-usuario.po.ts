@@ -27,7 +27,7 @@ export class CrearUsuario {
   }
 
   async setInputTelefono(telefono: string) {
-    await this.inputCedula.sendKeys(telefono);
+    await this.inputTelefono.sendKeys(telefono);
   }
 
   async clickBotonGuardarUsuario() {
@@ -36,6 +36,24 @@ export class CrearUsuario {
 
   async getTextoSwal(): Promise<string> {
     return await this.swal.getText();
+  }
+
+  getFakeNum(length) {
+    const randomChars = '1234567890';
+    let result = '';
+    for ( let i = 0; i < length; i++ ) {
+        result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+    }
+    return result;
+  }
+
+  getFakeString(length) {
+    const randomChars = 'QWERTYUIOPLKJHGFGFDDSAZXCVBNM';
+    let result = '';
+    for ( let i = 0; i < length; i++ ) {
+        result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+    }
+    return result;
   }
 
 }

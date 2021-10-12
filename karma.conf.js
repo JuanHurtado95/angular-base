@@ -28,7 +28,7 @@ module.exports = function (config) {
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
-    reporters: ['progress', 'kjhtml','junit','sonarqube'],
+    reporters: ['progress', 'kjhtml','junit'],
     htmlReporter: {
       outputFile: 'reports/unit/units.html',
 
@@ -43,14 +43,6 @@ module.exports = function (config) {
       suite: '',
       useBrowserName: false
    },
-   sonarqubeReporter: {
-    basePath: 'src/app',
-    filePattern: '**/*spec.ts',
-    encoding: 'utf-8',
-    outputFolder: 'reports/unit',
-    legacyMode: false,
-    reportName: 'test-sonar.xml'
-  },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

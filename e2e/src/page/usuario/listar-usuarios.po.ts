@@ -4,8 +4,8 @@ export class ListarUsuarios{
 
   private botonCrearUsuario = element.all(by.id("botonCrearUsuario"));
   private tablaUsuarios = element.all(by.className("tablaUsuarios"));
-  private botonEditarUsuario = element.all(by.id("botonEditarUsuario1"));
-  private botonEliminarUsuario = element.all(by.id("botonEliminarUsuario1"));
+  private botonEditarUsuario = element.all(by.id("botonEditarUsuario2"));
+  private botonEliminarUsuario = element.all(by.id("botonEliminarUsuario2"));
   private swal = element(by.className('swal2-title'));
 
 

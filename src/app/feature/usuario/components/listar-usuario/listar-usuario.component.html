@@ -20,15 +20,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let usuario of usuarios | async" class="text-center tablaUsuarios">
+          <tr *ngFor="let usuario of usuarios | async let i = index " class="text-center tablaUsuarios">
             <td>{{usuario.id}}</td>
             <td>{{usuario.cedula}}</td>
             <td>{{usuario.nombre}}</td>
             <td>{{usuario.telefono}}</td>
             <td>
-              <button (click)="editarUsuario(usuario)" class="btn btn-outline-secondary btn-sm bi bi-pencil-square" [id]="'botonEditarUsuario'+ usuario.id"> Editar</button>
+              <button (click)="editarUsuario(usuario)" class="btn btn-outline-secondary btn-sm bi bi-pencil-square" [id]="'botonEditarUsuario'+ i"> Editar</button>
               &nbsp;
-              <button (click)="deleteUsuario(usuario)" class="btn btn-outline-danger btn-sm bi bi-trash-fill" [id]="'botonEliminarUsuario' + usuario.id"> Borrar</button>
+              <button (click)="deleteUsuario(usuario)" class="btn btn-outline-danger btn-sm bi bi-trash-fill" [id]="'botonEliminarUsuario' + i"> Borrar</button>
             </td>
           </tr>
         </tbody>

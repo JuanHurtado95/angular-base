@@ -1,5 +1,4 @@
 import { NavbarPage } from "../../page/navbar/navbar.po";
-import { browser } from "protractor";
 import { AppPage } from "../../app.po";
 import { CrearUsuario } from "../../page/usuario/crear-usuario.po";
 import { ListarUsuarios } from "../../page/usuario/listar-usuarios.po";
@@ -9,8 +8,8 @@ describe("Crear Usuario", () => {
   let navBar: NavbarPage;
   let listarUsuarios: ListarUsuarios;
   let crearUsuario: CrearUsuario;
-  const NOMBRE = 'test';
-  const CEDULA = '123456';
+  const NOMBRE = 'SDFGHYT';
+  const CEDULA = '45356567';
   const TELEFONO = '423554667';
   const USUARIO_CREADO = "Usuario creado correctamente";
   const USUARIO_YA_EXISTE = "El usuario ya existe en el sistema";
@@ -23,53 +22,46 @@ describe("Crear Usuario", () => {
     listarUsuarios = new ListarUsuarios();
   });
 
-  it("Debe crear el Usuario", () => {
+  it("Debe crear el Usuario", async () => {
   //arrange
-    page.navigateTo();
-    navBar.clickBotonUsuarios();
-    listarUsuarios.clickBotonCrearUsuario();
-    crearUsuario.clickInputNombre();
-    crearUsuario.setInputNombre(NOMBRE);
-    crearUsuario.clickInputCedula();
-    crearUsuario.setInputCedula(CEDULA);
-    crearUsuario.clickInputCedula();
-    crearUsuario.setInputCedula(TELEFONO);
+    await page.navigateTo();
+    await navBar.clickBotonUsuarios();
+    await listarUsuarios.clickBotonCrearUsuario();
+    await crearUsuario.clickInputNombre();
+    await crearUsuario.setInputNombre(NOMBRE);
+    await crearUsuario.clickInputCedula();
+    await crearUsuario.setInputCedula(CEDULA);
+    await crearUsuario.clickInputCedula();
+    await crearUsuario.setInputTelefono(TELEFONO);
 
     //act
-    crearUsuario.clickBotonGuardarUsuario();
+    await crearUsuario.clickBotonGuardarUsuario();
 
     //assert
     //const alerta = "El usuario ha sido creado";
     const alerta = crearUsuario.getTextoSwal();
-    expect(alerta).toEqual(USUARIO_CREADO);
-    browser.sleep(1000);
+    await expect(alerta).toEqual(USUARIO_CREADO);
   });
 
-  it("Debe retornar un error que usuario ya existe ", () => {
+  it("Debe retornar un error que usuario ya existe ", async () => {
     //arrange
-      page.navigateTo();
-      navBar.clickBotonUsuarios();
-      browser.sleep(1000);
-      listarUsuarios.clickBotonCrearUsuario();
-      browser.sleep(1000);
-      crearUsuario.clickInputNombre();
-      crearUsuario.setInputNombre(NOMBRE);
-      browser.sleep(1000);
-      crearUsuario.clickInputCedula();
-      crearUsuario.setInputCedula(CEDULA);
-      browser.sleep(1000);
-      crearUsuario.clickInputCedula();
-      crearUsuario.setInputCedula(TELEFONO);
-      browser.sleep(1000);
+      await page.navigateTo();
+      await navBar.clickBotonUsuarios();
+      await listarUsuarios.clickBotonCrearUsuario();
+      await crearUsuario.clickInputNombre();
+      await crearUsuario.setInputNombre(NOMBRE);
+      await crearUsuario.clickInputCedula();
+      await crearUsuario.setInputCedula(CEDULA);
+      await crearUsuario.clickInputCedula();
+      await crearUsuario.setInputTelefono(TELEFONO);
 
       //act
-      crearUsuario.clickBotonGuardarUsuario();
+      await crearUsuario.clickBotonGuardarUsuario();
 
       //assert
       //const alerta = "El usuario ya existe";
-      const alerta = crearUsuario.getTextoSwal();
-      expect(alerta).toEqual(USUARIO_YA_EXISTE);
-      browser.sleep(1000);
+      const alerta = await crearUsuario.getTextoSwal();
+      await expect(alerta).toEqual(USUARIO_YA_EXISTE);
     });
 
 });

@@ -4,8 +4,8 @@ export class ListarCitas{
 
     private botonCrearCita = element.all(by.id("botonCrearCita"));
     private tablaCitas = element.all(by.className("tablaCitas"));
-    private botonEditarCita = element.all(by.id("botonEditarCita"));
-    private botonEliminarCita = element.all(by.id("botonEliminarCita"));
+    private botonEditarCita = element.all(by.id("botonEditarCita2"));
+    private botonEliminarCita = element.all(by.id("botonEliminarCita2"));
     private swal = element(by.className('swal2-title'));
   
   

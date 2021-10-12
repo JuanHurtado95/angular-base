@@ -24,7 +24,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let cita of citas | async" class="text-center tablaTiquetes">
+            <tr *ngFor="let cita of citas | async ; let i = index" class="text-center tablaCitas">
               <td>{{cita.id}}</td>
               <td>{{cita.vehiculo.usuario.cedula}}</td>
               <td>{{cita.vehiculo.usuario.nombre}}</td>
@@ -34,9 +34,9 @@
               <td>{{cita.vehiculo.tipoVehiculo.precioLavada}}</td>
               <td>{{cita.fecha | date:'dd-MM-yyyy'}}</td>
               <td>
-                <button (click)="editarCita(cita)" class="btn btn-outline-secondary btn-sm bi bi-pencil-square" [id]="'botonEditarCita'+ cita.id"> Editar</button>
+                <button (click)="editarCita(cita)" class="btn btn-outline-secondary btn-sm bi bi-pencil-square" [id]="'botonEditarCita'+ i"> Editar</button>
                 &nbsp;
-                <button (click)="deleteCita(cita)" class="btn btn-outline-danger btn-sm bi bi-trash-fill" [id]="'botonEliminarCita' + cita.id"> Borrar</button>
+                <button (click)="deleteCita(cita)" class="btn btn-outline-danger btn-sm bi bi-trash-fill" [id]="'botonEliminarCita' + i"> Borrar</button>
               </td>
             </tr>
           </tbody>

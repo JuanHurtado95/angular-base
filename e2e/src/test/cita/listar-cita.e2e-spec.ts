@@ -1,25 +1,25 @@
 import { NavbarPage } from "../../page/navbar/navbar.po";
 import { AppPage } from "../../app.po";
-import { ListarUsuarios } from "../../page/usuario/listar-usuarios.po";
+import { ListarCitas } from "../../page/cita/listar-cita.po";
 
 
 describe("Listar usuarios", () => {
   let page: AppPage;
   let navBar: NavbarPage;
-  let listarUsuarios: ListarUsuarios;
+  let listarcitas: ListarCitas;
 
   beforeEach(() => {
     page = new AppPage();
     navBar = new NavbarPage();
-    listarUsuarios = new ListarUsuarios();
+    listarcitas = new ListarCitas();
   });
 
   it("Deberia listar usuarios", async () => {
     //arrange
     await page.navigateTo();
     //act
-    await navBar.clickBotonUsuarios();
+    await navBar.clickBotonCitas();
     //assert
-    await expect(2).toBe(listarUsuarios.contarUsuarios());
+    await expect(2).toBe(listarcitas.contarCitas());
   });
 });
