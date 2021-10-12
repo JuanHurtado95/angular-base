@@ -1,9 +1,8 @@
 import { NavbarPage } from "../../page/navbar/navbar.po";
-import { browser } from "protractor";
 import { AppPage } from "../../app.po";
 import { ListarUsuarios } from "../../page/usuario/listar-usuarios.po";
 
-describe("Crear Usuario", () => {
+describe("Eliminar Usuario", () => {
   let page: AppPage;
   let navBar: NavbarPage;
   let listarUsuarios: ListarUsuarios;
@@ -15,21 +14,18 @@ describe("Crear Usuario", () => {
     listarUsuarios = new ListarUsuarios();
   });
 
-  it("Debe eliminar el Usuario", () => {
+  it("Debe eliminar el Usuario", async () => {
   //arrange
-    page.navigateTo();
-    browser.sleep(500);
-    navBar.clickBotonUsuarios();
-    browser.sleep(500);
+    await page.navigateTo();
+    await navBar.clickBotonUsuarios();
 
     //act
-    listarUsuarios.clickBotonEliminarUsuario();
-    browser.sleep(500);
+    await listarUsuarios.clickBotonEliminarUsuario();
 
     //assert
     //const alerta = "El usuario ha sido eliminado";
-    const alerta = listarUsuarios.getTextoSwal();
-    expect(alerta).toEqual(USUARIO_ELIMINADO);
-    browser.sleep(500);
+    const alerta = await listarUsuarios.getTextoSwal();
+    
+    await expect(alerta).toEqual(USUARIO_ELIMINADO);
   });
 });
