@@ -40,7 +40,7 @@ describe("Crear Cita", () => {
     await expect(alerta).toEqual(CITA_CREADA);
   });
 
-  fit("Debe error dias sabado o domingo", async () => {
+  it("Debe error dias sabado o domingo", async () => {
 
     await page.navigateTo();
     await navBar.clickBotonCitas();
@@ -51,15 +51,14 @@ describe("Crear Cita", () => {
     await crearCita.clickInputFechaCita();
     await crearCita.setInputFechaCita(FECHA_CITA_FINDE);
     
+
     //act
     await crearCita.clickBotonGuardarCita();
-    page.esperarElementoAparezca(crearCita.getToast());
 
     //assert
     //const alerta = "No se agenda citas los dias sabados y domingos";
     const alerta = await crearCita.getTextoSwal();
     await expect(alerta).toEqual(DIAS_SABADOS_DOMINGOS);
-
   });
 
 });

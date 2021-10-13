@@ -43,6 +43,14 @@ module.exports = function (config) {
       suite: '',
       useBrowserName: false
    },
+   sonarqubeReporter: {
+    basePath: 'src/app',
+    filePattern: '**/*spec.ts',
+    encoding: 'utf-8',
+    outputFolder: 'reports/unit',
+    legacyMode: false,
+    reportName: 'test-sonar.xml'
+  },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

@@ -5,7 +5,7 @@ import { Usuario } from "src/app/feature/usuario/shared/model/Usuario";
 import { UsuarioService } from "../../shared/service/usuario.service";
 
 @Component({
-  selector: "app-add",
+  selector: "app-crear-usuario",
   templateUrl: "./crear-usuario.component.html",
   styleUrls: ["./crear-usuario.component.css"],
 })
