@@ -19,39 +19,23 @@ export class SwalService {
   }
 
   succes(title: string): void {
-    Swal.mixin({
-      title,
-      toast: true,
+    Swal.fire({
       position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: false,
-      onOpen: toast => {
-        toast.addEventListener('mouseenter', Swal.stopTimer);
-        toast.addEventListener('mouseleave', Swal.resumeTimer);
-      }
-    }).fire({
       icon: 'success',
-      title: title
-    });
+      title: title,
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
   danger(title: string): void {
-    Swal.mixin({
-      title,
-      toast: true,
+    Swal.fire({
       position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: false,
-      onOpen: toast => {
-        toast.addEventListener('mouseenter', Swal.stopTimer);
-        toast.addEventListener('mouseleave', Swal.resumeTimer);
-      }
-    }).fire({
       icon: 'error',
-      title: title
-    });
+      title: title,
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
   iniciarObservablesConfirm(): void {
