@@ -31,6 +31,12 @@ pipeline {
                 sh 'npm install'
             }
         }
+
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
         
         stage('Tests') {
             steps {
@@ -44,12 +50,6 @@ pipeline {
                 withSonarQubeEnv('Sonar') {
                     sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties" 
                 }
-            }
-        }
-
-        stage('Build') {
-            steps {
-                sh 'npm run build'
             }
         }
     }
