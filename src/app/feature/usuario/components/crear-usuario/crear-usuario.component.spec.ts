@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { UsuarioService } from '@usuario/shared/service/usuario.service';
@@ -19,7 +19,7 @@ describe('CrearUsuarioComponent', () => {
       declarations: [ CrearUsuarioComponent ],
       imports: [
         CommonModule,
-        HttpClientModule,
+        HttpClientTestingModule,
         RouterTestingModule,
         ReactiveFormsModule,
         FormsModule
@@ -53,10 +53,6 @@ describe('CrearUsuarioComponent', () => {
 
   it('Usuario invalido cuando telefono vacio', () => {
     expect(component.usuario.telefono).toBeFalsy();
-  });
-
-  it('Creando Usuario', async () => {
-    
   });
 
 });
