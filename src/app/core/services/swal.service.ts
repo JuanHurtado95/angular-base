@@ -54,28 +54,6 @@ export class SwalService {
     });
   }
 
-  //Falta probar!!!!
-
-  // confirm(title: string): void {
-  // Swal.fire({
-  //   title: title,
-  //   text: "You won't be able to revert this!",
-  //   icon: 'warning',
-  //   showCancelButton: true,
-  //   confirmButtonColor: '#3085d6',
-  //   cancelButtonColor: '#d33',
-  //   confirmButtonText: 'Yes, delete it!'
-  // }).then((result) => {
-  //   if (result.isConfirmed) {
-  //     Swal.fire(
-  //       'Deleted!',
-  //       'Your file has been deleted.',
-  //       'success'
-  //     )
-  //   }
-  // })
-  // }
-
   iniciarObservablesConfirm(): void {
     this.clickConfirm = new EventEmitter();
     this.clickCancel = new EventEmitter();
